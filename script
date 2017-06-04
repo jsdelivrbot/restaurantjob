@@ -1,0 +1,32 @@
+create table restaurants
+(
+    id SERIAL PRIMARY KEY,
+    name text,
+    address text,
+    city text,
+    state varchar(2),
+    zipcode integer,
+    phone_number integer,
+    title text,
+    salary text,
+    post_date text,
+    expertise text,
+    description text,
+    phone_area integer
+)
+
+create table candidates
+(
+    id SERIAL PRIMARY KEY,
+    name text,
+    city text,
+    state varchar(2),
+    zipcode integer,
+    phone_number integer,
+    title text,
+    desire_salary text,
+    post_date text,
+    expertise text,
+    description text,
+    relocate boolean
+)
