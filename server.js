@@ -6,7 +6,6 @@ var config = require("./config");
 var session = require("express-session");
 var app = module.exports = express();
 
-console.log(massive, "massive")
 var db = massive.connectSync({
   connectionString: config.pgAdmin
 });

@@ -6,7 +6,7 @@ create table restaurants
     city text,
     state varchar(2),
     zipcode integer,
-    phone_number integer,
+    phone_number text,
     title text,
     salary text,
     post_date text,
@@ -22,7 +22,7 @@ create table candidates
     city text,
     state varchar(2),
     zipcode integer,
-    phone_number integer,
+    phone_number text,
     title text,
     desire_salary text,
     post_date text,
@@ -30,3 +30,9 @@ create table candidates
     description text,
     relocate boolean
 )
+
+insert into restaurants
+(name, address, city, state, zipcode, phone_number, title, salary, post_date, expertise, description, phone_area)
+values ('Ichiban', '1020 delta ave', 'cincinnati', 'OH', 45226, '5139999999', 'sushi chef', '3500', '06/01/2017', 'proficiant', '3+ experience', 513),
+('Asian paradise', '9521 ertor st', 'Loveland', 'OH', 45300, '5138802425', 'server', '3500', '05/27/2017', 'proficiant', 'server experience', 513),
+('Fulin''s Asian Cuisine', '5335 cane road', 'Nashville', 'TN', 39699, '6158804848', 'Fryer', '2500', '06/04/2017', 'any', 'hard worker', 615)

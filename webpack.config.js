@@ -6,6 +6,16 @@ module.exports = {
     path: __dirname + "/public",
     filename: 'bundle.js'
   },
+  devtool: "source-map",
+  devServer: {
+    contentBase: "./public",
+    proxy: {
+      "/api": {
+        target: "http://localhost:3010",
+        secure: false
+      }
+    }
+  },
   module: {
     loaders: [{
       exclude: /node_modules/,
