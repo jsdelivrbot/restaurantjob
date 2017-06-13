@@ -24,6 +24,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get("/api/restaurants", restaurantsCtrl.getRestaurants);
+// app.get("/api/restaurant", restaurantsCtrl.getRestaurant);
+app.post("/api/restaurant", restaurantsCtrl.addRestaurant);
+
 app.get("/api/candidates", candidatesCtrl.getCandidates);
 
 app.listen(port, function() {

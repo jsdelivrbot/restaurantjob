@@ -1,4 +1,4 @@
-import { GET_RESTAURANTS, GET_RESTAURANT } from "../actions/action_restaurant";
+import { GET_RESTAURANTS, GET_RESTAURANT, ADD_RESTAURANT } from "../actions/action_restaurant";
 
 const INITIAL_STATE = { all: [], current_restaurant: {} };
 
@@ -9,6 +9,9 @@ export default function restaurantReducer(state=INITIAL_STATE, action) {
       break;
     case GET_RESTAURANT:
       return { ...state, all: action.payload.data }
+      break;
+    case ADD_RESTAURANT:
+      return { ...state, all: [ ...state.all, action.payload.data ] }
       break;
     default:
       return state;
