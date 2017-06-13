@@ -23,9 +23,12 @@ export function getRestaurant(id) {
   }
 }
 
-export function addRestaurant(id) {
+export function addRestaurant(props) {
+  console.log(props, "props")
+  const date = new Date();
+  props.post_date = date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
   const url = "/api/restaurant";
-  const request = axios.post(url);
+  const request = axios.post(url, props);
   return {
     type: ADD_RESTAURANT,
     payload: request
