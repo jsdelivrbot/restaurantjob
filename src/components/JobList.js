@@ -12,19 +12,19 @@ class JobList extends Component {
 
     const restaurants = this.props.restaurants.map(restaurant => (
       <ul key={ restaurant.id } >
-        <li>{ restaurant.name }</li>
-        <li>{ restaurant.city }</li>
-        <li>{ restaurant.state }</li>
-        <li>{ restaurant.zipcode }</li>
-        <li>{ restaurant.title }</li>
-        <li>{ restaurant.salary }</li>
-        <li>{ restaurant.expertise }</li>
-        <div>{ restaurant.description }</div>
+        <li>Restaurant Name:{ restaurant.name }</li>
+        <li>City:{ restaurant.city }</li>
+        <li>State:{ restaurant.state }</li>
+        <li>Zipcod:{ restaurant.zipcode }</li>
+        <li>Job Position:{ restaurant.title }</li>
+        <li>Salary:{ restaurant.salary }</li>
+        <li>Experience:{ restaurant.expertise }</li>
+        <div>Description:{ restaurant.description }</div>
       </ul>
     ))
     return (
       <div>
-
+        查找结果：
         { restaurants }
       </div>
     )

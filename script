@@ -25,10 +25,10 @@ create table candidates
     phone_number text,
     title text,
     desire_salary text,
-    post_date text,
+    register_date text,
     expertise text,
     description text,
-    relocate boolean
+    relocate text
 )
 
 insert into restaurants

@@ -7,7 +7,8 @@ var session = require("express-session");
 var app = module.exports = express();
 
 var db = massive.connectSync({
-  connectionString: config.pgAdmin
+  // connectionString: config.pgAdmin
+  connectionString: config.elephantsql
 });
 app.set("db", db);
 
@@ -27,7 +28,8 @@ app.get("/api/restaurants", restaurantsCtrl.getRestaurants);
 // app.get("/api/restaurant", restaurantsCtrl.getRestaurant);
 app.post("/api/restaurant", restaurantsCtrl.addRestaurant);
 
-app.get("/api/candidates", candidatesCtrl.getCandidates);
+app.get("/api/candidate", candidatesCtrl.getCandidates);
+app.post("/api/candidate", candidatesCtrl.addCandidate);
 
 app.listen(port, function() {
   console.log("listen on port ", port);
