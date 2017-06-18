@@ -17,7 +17,7 @@ ReactDOM.render(
     <Router history={ browserHistory }>
       <Route path="/" component={ App } />
       <Route path="/post" component={ PostJob } />
-      <Route path="/login" component={ Login } />
+      {/* <Route path="/login" component={ Login } /> */}
       <Route path="/register" component={ Register } />
     </Router>
   </Provider>

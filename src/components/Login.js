@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 
-class Register extends Component {
+export default class Register extends Component {
   render() {
     return (
       <div>

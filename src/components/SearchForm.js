@@ -3,16 +3,7 @@ import CheckBox from "./CheckBox";
 import { reduxForm } from "redux-form";
 import { getTitles, getStates } from "../actions/action_checkbox";
 
-var formStyle = {
-  position: "absolute",
-  top: "50px",
-  border: "red 1px solid",
-  zIndex: "10",
-  background: "white",
-  color: "red",
-  width: "600px",
-  display: "flex"
-}
+
 
 class SearchForm extends Component {
   onSubmit(value) {
@@ -30,8 +21,8 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <form style={ formStyle } onSubmit={ this.props.handleSubmit(this.onSubmit.bind(this)) }>
-        <CheckBox names={ this.props.names } />
+      <form style={ this.props.formStyle } onSubmit={ this.props.handleSubmit(this.onSubmit.bind(this)) }>
+        <CheckBox checkBoxListItem={ this.props.checkBoxListItem } names={ this.props.names } />
         <button type="submit">Save</button>
       </form>
     )

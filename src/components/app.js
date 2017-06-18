@@ -14,9 +14,9 @@ export default class App extends Component {
         <FindJobFilter />
         <JobList />
         <Link to="/post" >
-        <button>Job Post</button>
-      </Link>
+          <button>Job Post</button>
+        </Link>
       </div>
-    );
+    )
   }
 }

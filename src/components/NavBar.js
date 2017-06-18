@@ -13,13 +13,14 @@ class NavBar extends Component {
     return (
       <nav>
         这里是navigation bar
-        { this.props.candidate.email && <Link to="/login" >
+        {/* { !this.props.candidate.email && <Link to="/login" >
           <button>Log In</button>
-        </Link> }
+        </Link> } */}
         { !this.props.candidate.email && <button>Log Out</button> }
         <Link to="/register" >
           <button>Register</button>
         </Link>
+        (提示注册可获得更多工作机会)
       </nav>
     )
   }

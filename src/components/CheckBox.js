@@ -3,18 +3,17 @@ import { Fields } from "redux-form";
 
 var checkBoxListStyle = {
   listStyleType: "none",
-  display: "flex"
+  display: "flex",
+  flexWrap: "wrap"
 }
 
-var checkBoxListItem = {
-  width: "50px"
-}
+
 
 class CheckBox extends Component {
   renderField(fields) {
     const checkBoxList = fields.names.map( name => {
       return (
-      <li key={ name } style={ checkBoxListItem }>
+      <li key={ name } style={ fields.checkBoxListItem }>
         <input type="checkbox" {...fields[name].input} />
         <label> { name }</label>
       </li>
@@ -28,7 +27,7 @@ class CheckBox extends Component {
 
   render() {
     return (
-      <Fields names={ this.props.names } component={ this.renderField } />
+      <Fields names={ this.props.names } checkBoxListItem={ this.props.checkBoxListItem } component={ this.renderField } />
     )
   }
 }

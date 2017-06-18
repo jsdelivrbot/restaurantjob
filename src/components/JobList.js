@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getRestaurants } from "../actions/action_restaurant";
 
+var divStyle = {
+  border: "red 1px solid"
+}
+
 class JobList extends Component {
   componentWillMount() {
     this.props.dispatch(getRestaurants());
@@ -23,8 +27,8 @@ class JobList extends Component {
       </ul>
     ))
     return (
-      <div>
-        查找结果：
+      <div style={ divStyle }>
+        查找结果:
         { restaurants }
       </div>
     )
