@@ -22,7 +22,7 @@ class SearchForm extends Component {
   render() {
     return (
       <form style={ this.props.formStyle } onSubmit={ this.props.handleSubmit(this.onSubmit.bind(this)) }>
-        <CheckBox checkBoxListItem={ this.props.checkBoxListItem } names={ this.props.names } />
+        <CheckBox onClick={ this.props.handleSubmit(this.onSubmit.bind(this)) } checkBoxListItem={ this.props.checkBoxListItem } names={ this.props.names } />
         <button type="submit">Save</button>
       </form>
     )

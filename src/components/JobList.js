@@ -14,6 +14,8 @@ class JobList extends Component {
   render() {
     if (!this.props.restaurants) return <div>Loading...</div>
 
+    // const restaurants = this.props.restaurants
+
     const restaurants = this.props.restaurants.map(restaurant => (
       <ul key={ restaurant.id } >
         <li>Restaurant Name:{ restaurant.name }</li>
@@ -37,7 +39,8 @@ class JobList extends Component {
 
 function mapStateToProps(state) {
   return {
-    restaurants: state.restaurant.all
+    restaurants: state.restaurant.all,
+    restaurant_filter: state.filter.restaurant_filter
   }
 }
 

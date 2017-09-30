@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm";
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm, change } from "redux-form";
 import { connect } from "react-redux";
 import { getTitles, getStates } from "../actions/action_checkbox";
+import { getRestaurantFilter } from "../actions/action_filter";
 
 
 
@@ -50,6 +51,7 @@ class FindJobFilter extends Component {
   }
 
   handleChange(fieldName, event) {
+    // console.log("event", event.target.value)
     if (fieldName === "title")
       this.props.dispatch(getTitles(event.target.value));
     else
@@ -57,17 +59,29 @@ class FindJobFilter extends Component {
   }
 
   onSubmit(value) {
-    console.log(value)
+    var obj = this.props.restaurant_filter;
+    obj.title = value.title;
+    obj.state = value.state;
+    console.log("gime value",obj)
+    this.props.dispatch(getRestaurantFilter(obj));
   }
   renderField(field) {
-    console.log("value", field)
+    // console.log("input value", field.input.value)
     return (
-      <input type="text" { ...field.input } value={ field.val } />
+      <input type="text" { ...field.input } />
     )
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    // console.log("p", nextProps, "s", nextState)
+    this.props.initialize({
+      title: nextProps.title,
+      state: nextProps.state
+    })
+  }
+
   render() {
-    console.log("state", this.state)
+    // console.log("state", this.state)
     const { handleSubmit } = this.props;
     return (
       <div style={ divStyle }>
@@ -75,15 +89,17 @@ class FindJobFilter extends Component {
         <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
           <div>
             <p>Title</p>
-            <Field name="title" val={ this.props.title } onFocus={ () => this.setState({ showTitleForm: true }) } component={ this.renderField } onChange={ this.handleChange.bind(this, "title") } />
-
+            {/* <Field name="title" val={ this.props.title } onFocus={ () => this.setState({ showTitleForm: true }) } component={ this.renderField }/> */}
+            <Field name="title" component="input" type="text" onFocus={ () => this.setState({ showTitleForm: true }) } onChange={ this.handleChange.bind(this, "title") } />
+            <input name="test" value={ this.props.title } />
           </div>
           <div>
             <p>Where</p>
-            <Field name="state" val={ this.props.state } onFocus={ () => this.setState({ showStateForm: true}) } component={ this.renderField } onChange={ this.handleChange.bind(this, "state") } />
+            <Field name="state" component="input" type="text" onFocus={ () => this.setState({ showStateForm: true }) } onChange={ this.handleChange.bind(this, "state") } />
+            {/* <Field name="state" val={ this.props.state } onFocus={ () => this.setState({ showStateForm: true}) } component={ this.renderField } /> */}
 
           </div>
-          <button type="submit" >Search</button>
+          <button type="submit">Search</button>
         </form>
         { this.state.showTitleForm && <SearchForm formStyle={ titleFormStyle } checkBoxListItem={ titleCheckBoxListItem } handleClick={ () => this.setState({ showTitleForm: false}) } names={ ["Sushi Chef", "Sushi Helper", "Stirfry Chef", "Stirfry Helper", "Fryer", "Kitchen Helper", "Food Runner", "Buser", "Server", "Deliverer", "Dish Washer"] } form="title" /> }
         { this.state.showStateForm && <SearchForm formStyle={ stateFormStyle } checkBoxListItem={ stateCheckBoxListItem } handleClick={ () => this.setState({ showStateForm: false}) } names={ ["ALL", "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"] } form="state" /> }
@@ -95,12 +111,13 @@ class FindJobFilter extends Component {
 function mapStateToProps(state) {
   return {
     title: state.checkbox.titles,
-    state: state.checkbox.states
+    state: state.checkbox.states,
+    restaurant_filter: state.filter.restaurant_filter
   }
 }
 
-export default reduxForm({
+FindJobFilter = reduxForm({
   form: "jobtitleForm"
-})(
-  connect(mapStateToProps)(FindJobFilter)
-)
+})(FindJobFilter);
+
+export default connect(mapStateToProps)(FindJobFilter)
