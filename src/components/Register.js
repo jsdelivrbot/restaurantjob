@@ -102,10 +102,10 @@ class Register extends Component {
           <Field type="text" component="input" name="desire_salary" />
           <label>Experience:</label>
           <Field type="text" component="select" name="expertise" >
-            <option value="1">No experience</option>
-            <option value="2">Less than 1 year</option>
-            <option value="3">1-3 years</option>
-            <option value="4">3 Years+</option>
+            <option value="0">No experience</option>
+            <option value="1">Less than 1 year</option>
+            <option value="2">1-3 years</option>
+            <option value="3">3 Years+</option>
           </Field>
           <label>Relocate:</label>
           <Field type="text" component="select" name="relocate" >

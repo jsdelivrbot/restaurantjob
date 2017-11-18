@@ -3,24 +3,38 @@ import { Link } from "react-router";
 import { connect } from "react-redux";
 
 var navStyle = {
-  display: "block",
+  display: "flex",
   border: "black 1px solid",
-  height: "100px"
+  height: "100px",
+  justifyContent: "space-between"
 }
 
 class NavBar extends Component {
   render() {
     return (
-      <nav>
-        这里是navigation bar
+      <nav style={navStyle}>
+        <div>
+          <Link to="/post" >
+            <button>Post Job</button>
+          </Link>
+          <Link to="/" >
+            <button>Find Jobs</button>
+          </Link>
+
+        </div>
+        <div>
+          customer service: 615-668-9287
+        </div>
         {/* { !this.props.candidate.email && <Link to="/login" >
           <button>Log In</button>
         </Link> } */}
-        { !this.props.candidate.email && <button>Log Out</button> }
-        <Link to="/register" >
-          <button>Register</button>
-        </Link>
-        (提示注册可获得更多工作机会)
+        <div>
+          { !this.props.candidate.email && <button>Log Out</button> }
+          <Link to="/register" >
+            <button>Register</button>
+          </Link>
+        </div>
+
       </nav>
     )
   }

@@ -1,10 +1,10 @@
-import { GET_RESTAURANT_FILTER } from "../actions/action_filter";
+import { SET_RESTAURANT_FILTER } from "../actions/action_filter";
 
 const INITIAL_STATE = { restaurant_filter: {}, candidate_filter: {} };
 
 export default function filterReducer(state=INITIAL_STATE, action) {
   switch (action.type) {
-    case GET_RESTAURANT_FILTER:
+    case SET_RESTAURANT_FILTER:
       return { ...state, restaurant_filter: action.payload };
       break;
     // case GET_CANDIDATE_FILTER:

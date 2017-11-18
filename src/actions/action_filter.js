@@ -1,8 +1,8 @@
-export const GET_RESTAURANT_FILTER = "GET_RESTAURANT_FILTER";
+export const SET_RESTAURANT_FILTER = "SET_RESTAURANT_FILTER";
 
-export function getRestaurantFilter(obj) {
+export function setRestaurantFilter(obj) {
   return {
-    type: GET_RESTAURANT_FILTER,
+    type: SET_RESTAURANT_FILTER,
     payload: obj
   }
 }

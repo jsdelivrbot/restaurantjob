@@ -3,7 +3,7 @@ import SearchForm from "./SearchForm";
 import { Field, reduxForm, change } from "redux-form";
 import { connect } from "react-redux";
 import { getTitles, getStates } from "../actions/action_checkbox";
-import { getRestaurantFilter } from "../actions/action_filter";
+import { setRestaurantFilter } from "../actions/action_filter";
 
 
 
@@ -59,11 +59,7 @@ class FindJobFilter extends Component {
   }
 
   onSubmit(value) {
-    var obj = this.props.restaurant_filter;
-    obj.title = value.title;
-    obj.state = value.state;
-    console.log("gime value",obj)
-    this.props.dispatch(getRestaurantFilter(obj));
+    this.props.dispatch(setRestaurantFilter(value));
   }
   renderField(field) {
     // console.log("input value", field.input.value)
@@ -81,7 +77,7 @@ class FindJobFilter extends Component {
   }
 
   render() {
-    // console.log("state", this.state)
+    console.log("state", this.props.restaurant_filter)
     const { handleSubmit } = this.props;
     return (
       <div style={ divStyle }>

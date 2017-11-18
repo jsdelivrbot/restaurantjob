@@ -1,24 +1,27 @@
 import React, { Component } from "react";
+import SideBarListItem from "./SideBarListItem";
 
-class SideBar extends Component {
+
+export default class SideBar extends Component {
   render() {
     return (
       <div>
         <div>
           <p>Salary Estimate(monthly)</p>
           <ul>
-            <li>$1000+</li>
-            <li>$2000+</li>
-            <li>$3000+</li>
+            <SideBarListItem text="$1000" val={ { salary: 1000 } } />
+            <SideBarListItem text="$2000" val={ { salary: 2000 } } />
+            <SideBarListItem text="$3000" val={ { salary: 3000 } } />
+            <SideBarListItem text="$4000" val={ { salary: 4000 } } />
           </ul>
         </div>
         <div>
           <p>Experience Level</p>
           <ul>
-            <li>No Experience</li>
-            <li>Under 1 year</li>
-            <li>1 - 3 years</li>
-            <li>3 years+</li>
+            <SideBarListItem text="No Experience" val={ { experience: 0 } } />
+            <SideBarListItem text="Under 1 year" val={ { experience: 1 } } />
+            <SideBarListItem text="1 - 3 years" val={ { experience: 2 } } />
+            <SideBarListItem text="3 years+" val={ { experience: 3 } } />
           </ul>
         </div>
       </div>
